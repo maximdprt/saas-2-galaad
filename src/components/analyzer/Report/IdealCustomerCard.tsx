@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/Card";
 import { SectionHeader } from "@/components/ui/Section";
 import { Tag } from "@/components/ui/Tag";
+import { toArr } from "@/lib/utils";
 import type { IdealCustomer } from "@/lib/types";
 
 export function IdealCustomerCard({ icp }: { icp: IdealCustomer }) {
@@ -47,7 +48,7 @@ export function IdealCustomerCard({ icp }: { icp: IdealCustomer }) {
         <Card surface="paper" elevation="1" radius="lg" className="space-y-3">
           <p className="label-uppercase text-muted">Où le trouver</p>
           <ul className="space-y-1.5 text-sm">
-            {icp.whereToFind.map((w, i) => (
+            {toArr(icp.whereToFind).map((w, i) => (
               <li key={i} className="flex gap-2 leading-relaxed">
                 <span className="mt-2 inline-block h-1 w-1 rounded-full bg-olive" />
                 {w}
@@ -58,7 +59,7 @@ export function IdealCustomerCard({ icp }: { icp: IdealCustomer }) {
             Signaux qu'il a vraiment le problème
           </p>
           <ul className="space-y-1.5 text-sm">
-            {icp.signals.map((s, i) => (
+            {toArr(icp.signals).map((s, i) => (
               <li key={i} className="flex gap-2 leading-relaxed">
                 <span className="mt-2 inline-block h-1 w-1 rounded-full bg-vivid-blue" />
                 {s}
@@ -69,7 +70,7 @@ export function IdealCustomerCard({ icp }: { icp: IdealCustomer }) {
         <Card surface="paper" elevation="1" radius="lg" className="space-y-3">
           <p className="label-uppercase text-muted">Ce qui peut le convaincre</p>
           <ul className="space-y-1.5 text-sm">
-            {icp.convincers.map((c, i) => (
+            {toArr(icp.convincers).map((c, i) => (
               <li key={i} className="flex gap-2 leading-relaxed">
                 <span className="mt-2 inline-block h-1 w-1 rounded-full bg-fresh-green" />
                 {c}
@@ -78,7 +79,7 @@ export function IdealCustomerCard({ icp }: { icp: IdealCustomer }) {
           </ul>
           <p className="label-uppercase mt-4 text-muted">Objections probables</p>
           <ul className="space-y-1.5 text-sm">
-            {icp.objections.map((o, i) => (
+            {toArr(icp.objections).map((o, i) => (
               <li key={i} className="flex gap-2 leading-relaxed">
                 <span className="mt-2 inline-block h-1 w-1 rounded-full bg-coral" />
                 {o}
@@ -92,7 +93,7 @@ export function IdealCustomerCard({ icp }: { icp: IdealCustomer }) {
         <Card surface="shell" elevation="flat" radius="lg">
           <p className="label-uppercase mb-3 text-muted">Segments à prioriser</p>
           <div className="flex flex-wrap gap-2">
-            {icp.prioritySegments.map((s, i) => (
+            {toArr(icp.prioritySegments).map((s, i) => (
               <Tag key={i} tone="success">
                 {s}
               </Tag>
@@ -104,7 +105,7 @@ export function IdealCustomerCard({ icp }: { icp: IdealCustomer }) {
             Segments à éviter au début
           </p>
           <div className="flex flex-wrap gap-2">
-            {icp.avoidSegments.map((s, i) => (
+            {toArr(icp.avoidSegments).map((s, i) => (
               <Tag key={i} tone="warning">
                 {s}
               </Tag>

@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/Card";
 import { SectionHeader } from "@/components/ui/Section";
+import { toArr } from "@/lib/utils";
 import type { BusinessAnalysis } from "@/lib/types";
 
 export function StrengthsWeaknessesBlock({
@@ -24,7 +25,7 @@ export function StrengthsWeaknessesBlock({
         <Card surface="paper" elevation="1" radius="lg" className="space-y-3">
           <p className="label-uppercase text-muted">Forces</p>
           <ul className="space-y-1.5 text-sm">
-            {analysis.strengths.map((s, i) => (
+            {toArr(analysis.strengths).map((s, i) => (
               <li key={i} className="flex gap-2 leading-relaxed">
                 <span className="mt-2 inline-block h-1 w-1 rounded-full bg-fresh-green" />
                 <span>{s}</span>
@@ -35,7 +36,7 @@ export function StrengthsWeaknessesBlock({
         <Card surface="paper" elevation="1" radius="lg" className="space-y-3">
           <p className="label-uppercase text-muted">Faiblesses</p>
           <ul className="space-y-1.5 text-sm">
-            {analysis.weaknesses.map((s, i) => (
+            {toArr(analysis.weaknesses).map((s, i) => (
               <li key={i} className="flex gap-2 leading-relaxed">
                 <span className="mt-2 inline-block h-1 w-1 rounded-full bg-coral" />
                 <span>{s}</span>
@@ -46,7 +47,7 @@ export function StrengthsWeaknessesBlock({
         <Card surface="paper" elevation="1" radius="lg" className="space-y-3">
           <p className="label-uppercase text-muted">Hypothèses critiques</p>
           <ul className="space-y-1.5 text-sm">
-            {analysis.assumptions.map((s, i) => (
+            {toArr(analysis.assumptions).map((s, i) => (
               <li key={i} className="flex gap-2 leading-relaxed">
                 <span className="mt-2 inline-block h-1 w-1 rounded-full bg-gold" />
                 <span>{s}</span>
@@ -60,7 +61,7 @@ export function StrengthsWeaknessesBlock({
         <Card surface="shell" elevation="flat" radius="lg" className="space-y-3">
           <p className="label-uppercase text-muted">Conseils actionnables</p>
           <ul className="space-y-1.5 text-sm">
-            {analysis.advice.map((a, i) => (
+            {toArr(analysis.advice).map((a, i) => (
               <li key={i} className="flex gap-2 leading-relaxed">
                 <span className="mt-2 inline-block h-1 w-1 rounded-full bg-olive" />
                 <span>{a}</span>
@@ -73,7 +74,7 @@ export function StrengthsWeaknessesBlock({
             Questions critiques à se poser
           </p>
           <ul className="space-y-1.5 text-sm">
-            {analysis.criticalQuestions.map((q, i) => (
+            {toArr(analysis.criticalQuestions).map((q, i) => (
               <li key={i} className="flex gap-2 leading-relaxed">
                 <span className="mt-2 inline-block h-1 w-1 rounded-full bg-vivid-blue" />
                 <span>{q}</span>
@@ -86,7 +87,7 @@ export function StrengthsWeaknessesBlock({
       <Card surface="paper" elevation="1" radius="lg" className="space-y-3">
         <p className="label-uppercase text-muted">Canaux d'acquisition réalistes</p>
         <div className="flex flex-wrap gap-2">
-          {analysis.acquisitionChannels.map((c, i) => (
+          {toArr(analysis.acquisitionChannels).map((c, i) => (
             <span
               key={i}
               className="rounded-full border border-sand bg-shell px-3 py-1.5 text-sm text-ink"

@@ -52,9 +52,9 @@ export function MonetizationTest({
         description="Pour chaque modèle : avantages, inconvénients, complexité, compatibilité avec l'idée."
       />
       <div className="grid gap-4 lg:grid-cols-2">
-        {options.map((opt) => (
+        {options.map((opt, idx) => (
           <Card
-            key={opt.model}
+            key={`${opt.model}-${idx}`}
             surface={opt.recommended ? "shell" : "paper"}
             elevation="1"
             radius="lg"

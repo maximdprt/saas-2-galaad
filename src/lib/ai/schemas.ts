@@ -183,6 +183,7 @@ const stringListSchema = z.preprocess((v) => {
   if (Array.isArray(v)) return v;
   if (typeof v === "string") return splitListText(v);
   if (v == null) return [];
+  if (typeof v === "object") return Object.values(v as object).filter((s) => s != null).map(String);
   return [String(v)];
 }, z.array(z.coerce.string()).default([]));
 
@@ -394,8 +395,8 @@ export const pricingBenchmarkSchema = z.object({
     },
     z.array(
       z.object({
-        name: z.string(),
-        price: z.string(),
+        name: z.preprocess((x) => (x == null || x === "" ? "Concurrent" : x), z.string()),
+        price: z.preprocess((x) => (x == null || x === "" ? "Non disponible" : x), z.string()),
         notes: z.string().optional(),
       }),
     ),

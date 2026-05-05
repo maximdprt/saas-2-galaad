@@ -7,6 +7,9 @@ export function PricingBenchmarkBlock({
 }: {
   pricing: PricingBenchmark;
 }) {
+  const competitors = Array.isArray(pricing.competitorPricing)
+    ? pricing.competitorPricing
+    : [];
   return (
     <div className="space-y-6">
       <SectionHeader
@@ -34,11 +37,11 @@ export function PricingBenchmarkBlock({
         </p>
       </Card>
 
-      {pricing.competitorPricing.length > 0 ? (
+      {competitors.length > 0 ? (
         <Card surface="paper" elevation="1" radius="lg" className="space-y-3">
           <p className="label-uppercase text-muted">Benchmark concurrents</p>
           <ul className="divide-y divide-sand">
-            {pricing.competitorPricing.map((c, i) => (
+            {competitors.map((c, i) => (
               <li
                 key={i}
                 className="flex flex-wrap items-baseline justify-between gap-3 py-3 first:pt-0 last:pb-0"

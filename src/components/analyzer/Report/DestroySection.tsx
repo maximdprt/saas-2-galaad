@@ -4,6 +4,7 @@ import * as React from "react";
 import { Button } from "@/components/ui/Button";
 import { ErrorState } from "@/components/ui/ErrorState";
 import { analysesStore } from "@/lib/storage/analyses";
+import { toArr } from "@/lib/utils";
 import type {
   ApiError,
   BusinessAnalysis,
@@ -174,7 +175,7 @@ function DestructionView({ destruction }: { destruction: DestructionReport }) {
           <p className="mt-1 text-sm text-muted">Ce sur quoi tout repose et qui est probablement faux :</p>
         </div>
         <ul className="grid sm:grid-cols-2">
-          {destruction.fragileAssumptions.map((item, i) => (
+          {toArr(destruction.fragileAssumptions).map((item, i) => (
             <li
               key={i}
               className="border-b border-r border-sand p-6 text-sm leading-relaxed last:border-b-0 sm:even:border-r-0 sm:[&:nth-last-child(-n+2)]:border-b-0"
@@ -201,7 +202,7 @@ function DestructionView({ destruction }: { destruction: DestructionReport }) {
           <p className="mt-1 text-sm text-muted-light">Dans 18 mois, voilà comment ça se termine :</p>
         </div>
         <ul className="divide-y divide-soft-ink">
-          {destruction.failureScenarios.map((item, i) => (
+          {toArr(destruction.failureScenarios).map((item, i) => (
             <li key={i} className="flex gap-5 px-6 py-5 sm:px-8">
               <span className="mt-0.5 font-mono text-xs font-semibold text-coral shrink-0">
                 {String(i + 1).padStart(2, "0")}

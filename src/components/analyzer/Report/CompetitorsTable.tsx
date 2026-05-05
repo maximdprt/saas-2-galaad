@@ -6,6 +6,7 @@ import { DataTable } from "@/components/ui/DataTable";
 import { SectionHeader } from "@/components/ui/Section";
 import { Tabs } from "@/components/ui/Tabs";
 import { Tag } from "@/components/ui/Tag";
+import { toArr } from "@/lib/utils";
 import type { Competitor, CompetitorType } from "@/lib/types";
 
 const tabs: { id: "all" | CompetitorType; label: string }[] = [
@@ -101,7 +102,7 @@ export function CompetitorsTable({
             header: "Forces",
             render: (row) => (
               <ul className="space-y-1 text-sm">
-                {(row as unknown as Competitor).strengths.map((s, i) => (
+                {toArr((row as unknown as Competitor).strengths).map((s, i) => (
                   <li key={i}>· {s}</li>
                 ))}
               </ul>
@@ -112,7 +113,7 @@ export function CompetitorsTable({
             header: "Faiblesses",
             render: (row) => (
               <ul className="space-y-1 text-sm">
-                {(row as unknown as Competitor).weaknesses.map((w, i) => (
+                {toArr((row as unknown as Competitor).weaknesses).map((w, i) => (
                   <li key={i}>· {w}</li>
                 ))}
               </ul>

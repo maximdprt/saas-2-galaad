@@ -32,3 +32,11 @@ export function truncate(text: string, max = 140): string {
   if (text.length <= max) return text;
   return text.slice(0, max - 1).trimEnd() + "…";
 }
+
+/** Safely coerce any AI-returned value to a string array. */
+export function toArr(v: unknown): string[] {
+  if (Array.isArray(v)) return v.map(String);
+  if (typeof v === "string") return v.split(/,|;|\n/).map((s) => s.trim()).filter(Boolean);
+  if (v && typeof v === "object") return Object.values(v).filter((x) => x != null).map(String);
+  return [];
+}

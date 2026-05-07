@@ -9,7 +9,7 @@ import {
 import { badRequest, errorResponse } from "@/lib/api/respond";
 import { isWebSearchAvailable } from "@/lib/search/provider";
 import { buildAnalysisFromCore } from "@/lib/analysis/build";
-import { supabase } from "@/lib/supabase";
+import { getSupabase } from "@/lib/supabase";
 
 export const runtime = "nodejs";
 export const maxDuration = 300;
@@ -55,15 +55,16 @@ export async function POST(req: Request) {
       temperature: 0.45,
     });
 
-    // Save to Supabase (fire-and-forget, don't block the response)
+    // Save to Supabase when configured. Local browser storage remains the
+    // primary persistence path for the app.
     const analysis = buildAnalysisFromCore({
       idea: parsed.data.idea,
       clarifications: parsed.data.clarifications,
       core,
       liveSearchUsed: liveSearch,
     });
-    supabase
-      .from("analyses")
+    getSupabase()
+      ?.from("analyses")
       .insert({
         id: analysis.id,
         created_at: analysis.createdAt,

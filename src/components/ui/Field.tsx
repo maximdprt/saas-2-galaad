@@ -21,9 +21,9 @@ export function FieldLabel({ htmlFor, hint, className, children }: LabelProps) {
 }
 
 const baseInputClasses = cn(
-  "w-full rounded-2xl border border-sand bg-paper px-4 py-3 text-base text-ink",
+  "w-full rounded-md border border-sand bg-paper px-4 py-3 text-base text-ink",
   "placeholder:text-muted-light",
-  "focus:border-vivid-blue/60 focus:outline-none focus:ring-2 focus:ring-vivid-blue/20",
+  "focus:border-ink focus:outline-none focus:ring-2 focus:ring-gold/40",
   "disabled:cursor-not-allowed disabled:opacity-60",
   "transition-colors duration-200",
 );

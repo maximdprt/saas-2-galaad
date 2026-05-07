@@ -26,9 +26,9 @@ const elevationClasses: Record<Elevation, string> = {
 };
 
 const radiusClasses = {
-  md: "rounded-2xl",
-  lg: "rounded-[22px]",
-  xl: "rounded-[28px]",
+  md: "rounded-md",
+  lg: "rounded-lg",
+  xl: "rounded-lg",
 };
 
 export function Card({

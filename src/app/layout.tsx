@@ -25,9 +25,9 @@ const mono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Bizroast — Analyse honnête de ton idée business",
+  title: "Bizroast - Analyse claire de ton idee business",
   description:
-    "Un analyste IA exigeant qui teste la solidité de ton idée business : risques, marché, concurrence, monétisation, plan de validation, Go/No-Go.",
+    "Un analyste IA exigeant qui teste la solidite de ton idee business : risques, marche, concurrence, monetisation, plan de validation, Go/No-Go.",
 };
 
 export default function RootLayout({
@@ -42,7 +42,7 @@ export default function RootLayout({
     >
       <body className="bg-paper text-ink antialiased">
         <TopNav />
-        <main className="min-h-[calc(100dvh-72px)]">{children}</main>
+        <main className="min-h-[calc(100dvh-64px)]">{children}</main>
       </body>
     </html>
   );

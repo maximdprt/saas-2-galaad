@@ -12,11 +12,7 @@ import { Tabs } from "@/components/ui/Tabs";
 import { Tag } from "@/components/ui/Tag";
 import { analysesStore } from "@/lib/storage/analyses";
 import { formatDate, truncate } from "@/lib/utils";
-import type {
-  AnalysisStatus,
-  BusinessAnalysis,
-  Verdict,
-} from "@/lib/types";
+import type { AnalysisStatus, BusinessAnalysis, Verdict } from "@/lib/types";
 
 const verdictMeta: Record<
   Verdict,
@@ -32,17 +28,17 @@ const verdictMeta: Record<
 const verdictTabs: { id: "all" | Verdict; label: string }[] = [
   { id: "all", label: "Tous" },
   { id: "go", label: "Go" },
-  { id: "go-conditions", label: "Go conditions" },
+  { id: "go-conditions", label: "Conditions" },
   { id: "pivot", label: "Pivot" },
   { id: "no-go", label: "No-go" },
-  { id: "too-vague", label: "Trop flou" },
+  { id: "too-vague", label: "Flou" },
 ];
 
 const statusLabel: Record<AnalysisStatus, string> = {
   draft: "Brouillon",
-  completed: "Terminée",
-  "needs-clarification": "À préciser",
-  archived: "Archivée",
+  completed: "Terminee",
+  "needs-clarification": "A preciser",
+  archived: "Archivee",
 };
 
 export function HistoryDashboard() {
@@ -71,7 +67,7 @@ export function HistoryDashboard() {
   if (items === null) {
     return (
       <div className="mx-auto w-full max-w-[1080px] px-5 py-12 sm:px-8">
-        <LoadingState title="Ouverture de l'historique…" />
+        <LoadingState title="Ouverture de l'historique..." />
       </div>
     );
   }
@@ -91,51 +87,44 @@ export function HistoryDashboard() {
     });
 
   return (
-    <div className="mx-auto w-full max-w-[1280px] px-5 py-12 sm:px-8">
-      <header className="mb-10 flex flex-wrap items-end justify-between gap-6">
+    <div className="mx-auto w-full max-w-[1320px] px-5 py-10 sm:px-8 lg:px-12">
+      <header className="mb-8 flex flex-wrap items-end justify-between gap-5 border-b border-sand pb-6">
         <div>
           <p className="label-uppercase text-muted">Historique</p>
-          <h1 className="mt-2 text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
-            Tes idées{" "}
-            <span className="font-serif-italic text-olive">analysées</span>
+          <h1 className="mt-2 text-4xl font-bold uppercase leading-none sm:text-5xl">
+            Idees testees
           </h1>
-          <p className="mt-2 max-w-xl text-base leading-relaxed text-muted">
-            Tout est stocké localement dans ce navigateur. Ouvre une analyse
-            pour reprendre, ou supprime ce que tu n'utilises plus.
+          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted">
+            Les rapports sont stockes localement dans ce navigateur. Rouvre une
+            analyse, discute avec le mentor ou supprime ce qui n&apos;est plus utile.
           </p>
         </div>
         <Button onClick={() => router.push("/")} size="md">
-          Lancer une nouvelle analyse
+          Nouvelle analyse
         </Button>
       </header>
 
       {items.length === 0 ? (
         <EmptyState
-          title="Pas encore d'analyse"
-          description="Lance ta première analyse honnête — texte ou voix. Elle apparaîtra ici."
+          title="Aucune analyse"
+          description="Lance un premier test. Le rapport apparaitra ici."
           action={
-            <Button
-              onClick={() => router.push("/")}
-              variant="primary"
-              size="md"
-            >
-              Décrire mon idée
+            <Button onClick={() => router.push("/")} variant="primary" size="md">
+              Decrire mon idee
             </Button>
           }
         />
       ) : (
-        <div className="space-y-6">
+        <div className="space-y-5">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <Tabs
               tabs={verdictTabs.map((t) => ({ id: t.id, label: t.label }))}
               active={verdictFilter}
-              onChange={(id) =>
-                setVerdictFilter(id as "all" | Verdict)
-              }
+              onChange={(id) => setVerdictFilter(id as "all" | Verdict)}
             />
-            <div className="w-full max-w-xs">
+            <div className="w-full max-w-sm">
               <Input
-                placeholder="Rechercher une idée…"
+                placeholder="Rechercher une idee..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
               />
@@ -143,63 +132,50 @@ export function HistoryDashboard() {
           </div>
 
           {filtered.length === 0 ? (
-            <Card surface="paper" elevation="1" radius="lg">
+            <Card surface="paper" elevation="flat" radius="lg">
               <p className="text-sm text-muted">
-                Aucune idée ne correspond à ces filtres.
+                Aucune idee ne correspond a ces filtres.
               </p>
             </Card>
           ) : (
-            <ul className="grid gap-4">
+            <ul className="grid gap-3">
               {filtered.map((a) => (
                 <li key={a.id}>
                   <Card
                     surface="paper"
-                    elevation="1"
+                    elevation="flat"
                     radius="lg"
-                    className="group flex flex-col gap-4 transition-shadow hover:shadow-[var(--shadow-level-2)]"
+                    className="grid gap-4 border-ink p-5 sm:grid-cols-[minmax(0,1fr)_110px] sm:items-start"
                   >
-                    <div className="flex flex-wrap items-start justify-between gap-3">
-                      <div className="min-w-0 flex-1">
-                        <div className="flex flex-wrap items-center gap-2">
-                          <Tag tone={verdictMeta[a.verdict].tone}>
-                            {verdictMeta[a.verdict].label}
-                          </Tag>
-                          <Tag tone="neutral">{statusLabel[a.status]}</Tag>
-                          <span className="text-xs text-muted">
-                            {formatDate(a.createdAt)}
-                          </span>
-                        </div>
-                        <h2 className="mt-3 text-lg font-semibold leading-snug">
-                          {truncate(a.idea, 140)}
-                        </h2>
-                        <p className="mt-1 text-sm leading-relaxed text-muted">
-                          {truncate(a.summary, 220)}
-                        </p>
-                      </div>
-                      <div className="flex shrink-0 flex-col items-end gap-1">
-                        <span className="font-mono text-3xl font-semibold tabular-nums text-ink">
-                          {a.viabilityScore}
+                    <div className="min-w-0">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <Tag tone={verdictMeta[a.verdict].tone}>
+                          {verdictMeta[a.verdict].label}
+                        </Tag>
+                        <Tag tone="neutral">{statusLabel[a.status]}</Tag>
+                        <span className="text-xs text-muted">
+                          {formatDate(a.createdAt)}
                         </span>
-                        <span className="text-xs text-muted">/ 100</span>
                       </div>
+                      <h2 className="mt-3 text-lg font-bold leading-snug">
+                        {truncate(a.idea, 150)}
+                      </h2>
+                      <p className="mt-1 text-sm leading-relaxed text-muted">
+                        {truncate(a.summary, 230)}
+                      </p>
                     </div>
 
-                    {a.goNoGo.next48h.length > 0 ? (
-                      <div className="rounded-2xl border border-sand bg-shell px-4 py-3">
-                        <p className="label-uppercase text-muted">
-                          Action 48h
-                        </p>
-                        <p className="mt-1 text-sm leading-relaxed text-ink">
-                          {a.goNoGo.next48h[0]}
-                        </p>
+                    <div className="flex items-start justify-between gap-4 sm:flex-col sm:items-end">
+                      <div className="text-left sm:text-right">
+                        <span className="font-mono text-4xl font-bold tabular-nums text-ink">
+                          {a.viabilityScore}
+                        </span>
+                        <span className="ml-1 text-xs text-muted">/100</span>
                       </div>
-                    ) : null}
-
-                    <div className="flex flex-wrap items-center justify-between gap-2">
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-wrap justify-end gap-2">
                         <Link href={`/analysis/${a.id}`}>
                           <Button size="sm" variant="primary" withArrow={false}>
-                            Rouvrir
+                            Ouvrir
                           </Button>
                         </Link>
                         <Link href={`/analysis/${a.id}/mentor`}>
@@ -212,8 +188,11 @@ export function HistoryDashboard() {
                           </Button>
                         </Link>
                       </div>
+                    </div>
+
+                    <div className="border-t border-sand pt-3 sm:col-span-2">
                       {confirmId === a.id ? (
-                        <div className="flex items-center gap-2">
+                        <div className="flex flex-wrap items-center gap-2">
                           <span className="text-xs text-muted">
                             Supprimer cette analyse ?
                           </span>

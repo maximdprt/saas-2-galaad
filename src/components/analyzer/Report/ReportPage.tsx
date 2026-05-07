@@ -30,27 +30,27 @@ import { ExportPanel } from "./ExportPanel";
 import { SectionAnchors } from "./SectionAnchors";
 
 const SECTIONS = [
-  { id: "summary", label: "Résumé & verdict" },
-  { id: "diagnostic", label: "Forces & faiblesses" },
-  { id: "risks", label: "Risques (×7)" },
+  { id: "summary", label: "Resume" },
+  { id: "diagnostic", label: "Forces / faiblesses" },
+  { id: "risks", label: "Risques" },
   { id: "competitors", label: "Concurrence" },
-  { id: "icp", label: "Client idéal" },
-  { id: "monetization", label: "Monétisation" },
+  { id: "icp", label: "Client ideal" },
+  { id: "monetization", label: "Monetisation" },
   { id: "pricing", label: "Pricing" },
   { id: "mvp", label: "MVP" },
-  { id: "validation", label: "Validation terrain" },
-  { id: "investor", label: "Façon investisseur" },
-  { id: "canvas", label: "Business Model Canvas" },
+  { id: "validation", label: "Terrain" },
+  { id: "investor", label: "Investisseur" },
+  { id: "canvas", label: "Canvas" },
   { id: "sources", label: "Sources" },
-  { id: "verdict", label: "Verdict Go/No-Go" },
-  { id: "destroy", label: "Mode contradicteur" },
+  { id: "verdict", label: "Verdict" },
+  { id: "destroy", label: "Contradicteur" },
 ];
 
 const statusLabel: Record<AnalysisStatus, string> = {
   draft: "Brouillon",
-  completed: "Terminée",
-  "needs-clarification": "À préciser",
-  archived: "Archivée",
+  completed: "Terminee",
+  "needs-clarification": "A preciser",
+  archived: "Archivee",
 };
 
 export function ReportPage({ id }: { id: string }) {
@@ -67,7 +67,7 @@ export function ReportPage({ id }: { id: string }) {
   if (!loaded) {
     return (
       <div className="mx-auto w-full max-w-[1080px] px-5 py-12 sm:px-8">
-        <LoadingState title="Ouverture du rapport…" />
+        <LoadingState title="Ouverture du rapport..." />
       </div>
     );
   }
@@ -76,8 +76,8 @@ export function ReportPage({ id }: { id: string }) {
     return (
       <div className="mx-auto w-full max-w-[1080px] px-5 py-16 sm:px-8">
         <EmptyState
-          title="Cette analyse est introuvable"
-          description="Elle a peut-être été supprimée, ou tu utilises un autre navigateur. Lance une nouvelle analyse pour repartir."
+          title="Analyse introuvable"
+          description="Elle a peut-etre ete supprimee, ou tu utilises un autre navigateur."
           action={
             <div className="flex flex-wrap gap-2">
               <Button onClick={() => router.push("/")} withArrow={false}>
@@ -88,7 +88,7 @@ export function ReportPage({ id }: { id: string }) {
                 onClick={() => router.push("/history")}
                 withArrow={false}
               >
-                Voir l'historique
+                Historique
               </Button>
             </div>
           }
@@ -98,51 +98,54 @@ export function ReportPage({ id }: { id: string }) {
   }
 
   return (
-    <div className="mx-auto w-full max-w-[1280px] px-5 py-12 sm:px-8">
-      <div className="grid gap-10 lg:grid-cols-[1fr_240px]">
-        <article className="min-w-0 space-y-12">
-          <header className="space-y-4">
-            <div className="flex flex-wrap items-center gap-2">
-              <Tag tone="ink">{statusLabel[analysis.status]}</Tag>
-              <Tag tone="neutral">
-                Mis à jour {new Date(analysis.updatedAt).toLocaleString("fr-FR")}
-              </Tag>
-            </div>
-            <h1 className="text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
-              Analyse{" "}
-              <span className="font-serif-italic text-olive">honnête</span> de
-              ton idée
+    <div className="mx-auto w-full max-w-[1320px] px-5 py-8 sm:px-8 lg:px-12">
+      <header className="mb-8 border-b border-sand pb-6">
+        <div className="flex flex-wrap items-center gap-2">
+          <Tag tone="ink">{statusLabel[analysis.status]}</Tag>
+          <Tag tone="neutral">
+            Mis a jour {new Date(analysis.updatedAt).toLocaleString("fr-FR")}
+          </Tag>
+        </div>
+        <div className="mt-4 flex flex-wrap items-end justify-between gap-5">
+          <div>
+            <p className="label-uppercase text-muted">Rapport Bizroast</p>
+            <h1 className="mt-2 text-4xl font-bold uppercase leading-none sm:text-5xl">
+              Verdict business
             </h1>
-            <div className="flex flex-wrap gap-2 print-hide">
-              <Link href={`/analysis/${analysis.id}/mentor`}>
-                <Button variant="primary" size="sm" withArrow>
-                  Discuter avec le mentor IA
-                </Button>
-              </Link>
-              <Button
-                variant="secondary"
-                size="sm"
-                withArrow={false}
-                onClick={() => router.push("/")}
-              >
-                Nouvelle analyse
+          </div>
+          <div className="flex flex-wrap gap-2 print-hide">
+            <Link href={`/analysis/${analysis.id}/mentor`}>
+              <Button variant="primary" size="sm" withArrow>
+                Mentor IA
               </Button>
-              <Button
-                variant="ghost"
-                size="sm"
-                withArrow={false}
-                onClick={() => router.push("/history")}
-              >
-                Historique
-              </Button>
-            </div>
-          </header>
+            </Link>
+            <Button
+              variant="secondary"
+              size="sm"
+              withArrow={false}
+              onClick={() => router.push("/")}
+            >
+              Nouvelle analyse
+            </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              withArrow={false}
+              onClick={() => router.push("/history")}
+            >
+              Historique
+            </Button>
+          </div>
+        </div>
+      </header>
 
+      <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_260px]">
+        <article className="min-w-0 space-y-8">
           {analysis.verdict === "too-vague" ? (
-            <Callout tone="warning" title="Idée trop floue">
-              L'IA n'a pas pu produire une analyse fiable. Précise la cible, le
-              problème, la solution et le contexte, puis relance une nouvelle
-              analyse.
+            <Callout tone="warning" title="Idee trop floue">
+              L&apos;IA n&apos;a pas pu produire une analyse fiable. Precise la cible,
+              le probleme, la solution et le contexte, puis relance une
+              nouvelle analyse.
             </Callout>
           ) : null}
 
@@ -212,29 +215,21 @@ export function ReportPage({ id }: { id: string }) {
           </Section>
 
           <Section id="destroy">
-            <DestroySection
-              analysis={analysis}
-              onUpdate={(a) => setAnalysis(a)}
-            />
+            <DestroySection analysis={analysis} onUpdate={(a) => setAnalysis(a)} />
           </Section>
 
-          <Card
-            surface="paper"
-            elevation="1"
-            radius="lg"
-            className="print-hide"
-          >
+          <Card surface="paper" elevation="flat" radius="lg" className="print-hide">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div>
-                <p className="label-uppercase text-muted">Et après ?</p>
+                <p className="label-uppercase text-muted">Prochain pas</p>
                 <p className="mt-1 text-base leading-relaxed text-ink">
-                  Garde le contexte du rapport et discute des prochains pas avec
-                  le mentor IA.
+                  Garde le contexte du rapport et discute des decisions avec le
+                  mentor IA.
                 </p>
               </div>
               <Link href={`/analysis/${analysis.id}/mentor`}>
                 <Button variant="primary" size="md">
-                  Ouvrir le mentor IA
+                  Ouvrir le mentor
                 </Button>
               </Link>
             </div>
@@ -242,14 +237,14 @@ export function ReportPage({ id }: { id: string }) {
         </article>
 
         <aside className="hidden lg:block">
-          <div className="sticky top-24 space-y-4 print-hide">
+          <div className="sticky top-20 space-y-4 print-hide">
             <SectionAnchors items={SECTIONS} />
             <ExportPanel analysis={analysis} />
           </div>
         </aside>
       </div>
 
-      <div className="mt-10 lg:hidden print-hide">
+      <div className="mt-8 lg:hidden print-hide">
         <ExportPanel analysis={analysis} />
       </div>
     </div>

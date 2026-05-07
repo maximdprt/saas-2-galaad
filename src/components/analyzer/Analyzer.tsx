@@ -24,6 +24,7 @@ export function Analyzer() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
     });
+
     if (!res.ok) {
       const data = (await res.json().catch(() => null)) as
         | { error?: ApiError }
@@ -35,6 +36,7 @@ export function Analyzer() {
         }
       );
     }
+
     return (await res.json()) as T;
   }
 
@@ -42,6 +44,7 @@ export function Analyzer() {
     if (idea.trim().length < 12) return;
     setError(null);
     setPhase("analyzing");
+
     try {
       const data = await postJson<{
         core: BusinessAnalysisCore;
@@ -62,23 +65,19 @@ export function Analyzer() {
   }
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6">
       {phase === "idle" ? (
-        <IdeaInput
-          value={idea}
-          onChange={setIdea}
-          onSubmit={handleStart}
-        />
+        <IdeaInput value={idea} onChange={setIdea} onSubmit={handleStart} />
       ) : null}
 
       {phase === "analyzing" ? (
         <LoadingState
-          title="Analyse honnête en cours…"
+          title="Analyse en cours..."
           steps={[
-            "Lecture critique de l'idée",
-            "Cartographie marché et concurrence",
+            "Lecture critique de l'idee",
+            "Cartographie marche et concurrence",
             "Calibrage des 7 risques",
-            "ICP, monétisation, Business Model Canvas",
+            "ICP, monetisation, Business Model Canvas",
             "Plan MVP et plan de validation terrain",
             "Verdict Go / No-Go",
           ]}

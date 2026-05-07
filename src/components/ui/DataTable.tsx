@@ -24,7 +24,7 @@ export function DataTable<T extends Record<string, unknown>>({
 }: DataTableProps<T>) {
   if (rows.length === 0) {
     return (
-      <div className="rounded-2xl border border-sand bg-paper p-8 text-sm text-muted">
+      <div className="rounded-lg border border-sand bg-shell p-8 text-sm text-muted">
         {empty ?? "Aucune donnée."}
       </div>
     );
@@ -32,7 +32,7 @@ export function DataTable<T extends Record<string, unknown>>({
   return (
     <div
       className={cn(
-        "overflow-hidden rounded-2xl border border-sand bg-paper shadow-[var(--shadow-level-1)]",
+        "overflow-hidden rounded-lg border border-sand bg-shell shadow-[var(--shadow-level-1)]",
         className,
       )}
     >

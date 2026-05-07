@@ -30,7 +30,7 @@ Structure ton analyse avec :
 Règles :
 - Si l'idée est trop vague, mets verdict "too-vague", viabilityScore en dessous de 35, et explique dans summary et goNoGo.why pourquoi tu ne peux pas conclure proprement.
 - Sois calibré sur les scores : la majorité des idées non testées tombent entre 35 et 65.
-- Pas de bullshit. Si tu ne sais pas, écris-le.
+- Pas de remplissage. Si tu ne sais pas, écris-le.
 - N'invente jamais de noms de boîtes réelles, d'études, de chiffres précis.
 - Les valeurs d'enum doivent rester en anglais exactement comme demandé, même si tout le texte explicatif est en français.
 - Reste exigeant et constructif.`;

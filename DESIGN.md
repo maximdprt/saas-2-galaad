@@ -1,168 +1,102 @@
-# Direction Artistique — Style Nike
+# Direction Artistique - Noyau
 
-## 1. Philosophie de marque
+## Positionnement
 
-**"Just Do It"** — Nike incarne le dépassement de soi, la performance et l'authenticité. La DA traduit visuellement une **énergie cinétique**, une **détermination** et une **inclusivité sportive**. Chaque élément graphique doit transmettre du mouvement, de la puissance et de l'émotion.
+Noyau est un SaaS d'analyse business qui aide un fondateur a isoler ce qui tient vraiment dans une idee. La marque ne vend pas une claque ni un spectacle : elle vend de la clarte, du tri, une decision exploitable.
 
-### Piliers narratifs
-- **Performance** : repousser les limites
-- **Authenticité** : héros réels, athlètes vrais
-- **Inspiration** : faire rêver, motiver à agir
-- **Audace** : casser les codes, oser
+Phrase guide : **"Garde ce qui tient."**
 
----
+## Personnalite
 
-## 2. Logo & Identité
+- Simple, lucide, directe.
+- Calme plutot que theatrale.
+- Exigeante sans posture agressive.
+- Orientee terrain : preuves, risques, prochaines actions.
 
-### Le Swoosh
-- Symbole minimaliste, dynamique, évoquant le mouvement et la vitesse
-- Toujours **net, sans déformation**
-- Utilisable seul (sans wordmark) — c'est l'un des logos les plus reconnaissables au monde
-- Espace de protection : minimum équivalent à la hauteur du Swoosh autour du logo
+## Nom
 
-### Wordmark
-- "NIKE" en capitales, condensé, italique léger (Futura Bold Condensed Oblique historiquement)
-- Tracking serré
-- Souvent superposé ou combiné avec le Swoosh
+**Noyau**
 
----
+Le nom evoque le coeur d'une idee, ce qui reste quand on retire les suppositions, les effets de manche et les details inutiles.
 
-## 3. Palette de couleurs
+## Logo
 
-### Couleurs primaires
-| Usage | Couleur | HEX |
+Le signe est typographique : `NOYAU` en capitales, accompagne d'un petit point carre ou d'un bloc plein quand il faut une marque compacte.
+
+Regles :
+- Wordmark en capitales.
+- Pas d'icone illustrative.
+- Le bloc marque peut etre un carre plein avec la lettre `N`.
+- Toujours beaucoup d'air autour du logo.
+
+## Palette
+
+| Role | Nom | HEX |
 |---|---|---|
-| Noir signature | Nike Black | `#111111` |
-| Blanc pur | Nike White | `#FFFFFF` |
-| Rouge accent (Volt heritage) | Nike Red | `#FA0000` |
+| Texte principal | Encre | `#161512` |
+| Fond principal | Ivoire | `#FAF8F1` |
+| Surface claire | Craie | `#FFFFFF` |
+| Bordures | Ligne | `#DED8C8` |
+| Texte secondaire | Gris chaud | `#6E695F` |
+| Accent action | Terre cuite | `#C85A3B` |
+| Accent information | Bleu profond | `#1E4E8C` |
+| Accent validation | Vert pale | `#CFE8B5` |
 
-### Couleur emblématique
-- **Volt (jaune-vert fluo)** : `#CEFF00` — couleur signature de la performance, ultra reconnaissable
+Regle d'usage : 70% ivoire/craie, 20% encre/gris, 10% accents. L'accent terre cuite sert aux appels a l'action et aux moments de tension. Le bleu sert aux liens et informations. Le vert pale sert uniquement aux etats positifs.
 
-### Palette étendue (campagnes)
-- Tons monochromes (noir/blanc/gris) pour le storytelling premium
-- Couleurs vives saturées (orange, bleu électrique, magenta) pour les drops et collections
-- Tons terreux et naturels pour les lignes lifestyle/ACG
+## Typographie
 
-**Règle** : 80% noir & blanc, 20% accent couleur. Le contraste doit toujours être violent, jamais tiède.
+Sans-serif compacte et lisible.
 
----
+Regles :
+- Titres courts, massifs, sans italique.
+- Corps de texte en taille moderee.
+- Pas de tracking negatif.
+- Les labels sont en capitales, petits, espacements controles.
+- Les textes doivent privilegier les verbes concrets : trier, tester, valider, couper, garder.
 
-## 4. Typographie
+## Composition
 
-### Famille principale
-- **Futura** (historique) — sans-serif géométrique, condensée, en CAPITALES
-- **Trade Gothic** ou **Helvetica Neue Bold Condensed** pour les déclinaisons
+- Interface en bandes simples, pas de decoration gratuite.
+- Grilles lisibles, peu de cartes, beaucoup de separations par lignes.
+- Un ecran doit montrer l'action principale sans forcer l'utilisateur a chercher.
+- Les blocs d'aide restent secondaires.
+- Coins legerement arrondis, jamais "pill" sauf tags tres courts si necessaire.
 
-### Hiérarchie
-- **Titres** : capitales, ultra-bold, condensées, tracking serré, souvent en italique
-- **Sous-titres** : medium, capitales ou title case
-- **Corps de texte** : sans-serif neutre, lisible, taille modeste
+## Composants
 
-### Règles
-- Phrases courtes, **impératives**, percutantes ("RUN.", "JUST DO IT.", "DREAM CRAZY.")
-- Mots isolés massifs occupant l'espace
-- Mélange tailles XXL / petits caractères pour créer du rythme
+- Bouton principal : fond terre cuite, texte ivoire.
+- Bouton secondaire : fond transparent, bordure encre.
+- Champs : grands, calmes, bordure nette.
+- Tags : petits rectangles arrondis.
+- Cartes : reservees aux rapports, historiques et etats vides.
+- Sidebar : utile, compacte, jamais decorative.
 
----
+## Ton
 
-## 5. Photographie & Imagerie
+Noyau parle comme un associe calme :
 
-### Style photo
-- **Athlètes en action** : sueur, tension musculaire, mouvement figé
-- **Grain visible**, contrastes marqués, ombres profondes
-- Cadrage **dynamique** : contre-plongée, plongée, plans serrés sur le geste
-- Noir & blanc dramatique OU couleurs ultra saturées
-- Lumière dure, directionnelle (style éditorial sportif)
+- "Decris l'idee."
+- "On trie."
+- "Vois ce qui tient."
+- "Teste sur le terrain."
+- "Garde, pivote ou coupe."
 
-### Sujets
-- Athlètes professionnels ET anonymes (running club, kids, communautés)
-- Diversité réelle : âges, corps, ethnies, genres, capacités
-- Décors urbains bruts (béton, asphalte, grillage) ou stades
-- Produit en contexte d'usage, jamais en studio froid
+A eviter :
+- Humour force.
+- Provocation gratuite.
+- Vocabulaire de provocation ou de spectacle.
+- Promesses de certitude.
+- Superlatifs vagues.
 
-### Ce qu'il faut éviter
-- Sourires forcés, poses statiques de catalogue
-- Lumière douce et flatteuse type beauté
-- Décors trop propres ou aseptisés
+## Produit
 
----
+Le parcours doit tenir en trois temps :
 
-## 6. Composition & Mise en page
+1. **Entrer l'idee** : cible, probleme, solution, prix, contexte.
+2. **Lire le noyau** : verdict, risques, client ideal, monetisation.
+3. **Agir** : plan terrain 48h, MVP, questions clients.
 
-### Principes
-- **Plein cadre** : la photo respire, occupe tout l'espace
-- **Surimpression typographique** massive sur image
-- **Asymétrie** assumée, jamais centré bourgeois
-- Marges généreuses OU bord à bord, jamais entre-deux
-- Le Swoosh est **petit et discret** quand l'image est forte
+## Mantra
 
-### Grille
-- Système modulaire flexible
-- Alignements stricts mais ruptures volontaires pour créer de l'impact
-
----
-
-## 7. Ton de voix (Copy)
-
-### Caractère
-- **Direct, motivant, sans bla-bla**
-- Tutoiement ou apostrophe directe ("You", "Toi")
-- Ton de coach, de mentor, parfois de provocateur
-- Manifeste plus que publicité
-
-### Exemples de signatures
-- "Just Do It"
-- "Dream Crazy"
-- "You Can't Stop Us"
-- "Find Your Greatness"
-
-### Règles d'écriture
-- Phrases courtes, percutantes
-- Verbes d'action à l'impératif
-- Pas de superlatifs creux, des faits ou des émotions
-- Storytelling à la première personne quand pertinent
-
----
-
-## 8. Motion & Vidéo
-
-- Coupes rapides, **rythme musical** soutenu
-- Slow-motion sur les moments clés (geste sportif, expression)
-- Bande-son originale ou tracks puissants (hip-hop, électro, rock)
-- Voix-off de coach ou d'athlète
-- Transitions tranchées, jamais fondues molles
-- Final : Swoosh + signature en plein écran, silence ou beat final
-
----
-
-## 9. Merchandising & Print
-
-- Affiches grand format avec photo dominante + une ligne de copy
-- Packaging minimaliste : carton brut, encre noire, Swoosh discret
-- Étiquettes produit : informatives, techniques, sans fioritures
-- Vitrines : dramatiques, cinétiques, souvent monochromes avec un point couleur
-
----
-
-## 10. Do's & Don'ts
-
-### ✅ À faire
-- Privilégier l'émotion sur l'information
-- Montrer l'effort, la sueur, le vrai
-- Utiliser le contraste comme arme
-- Faire confiance au silence visuel (espaces noirs ou blancs purs)
-- Penser "manifeste" avant "produit"
-
-### ❌ À éviter
-- Décor surchargé, mises en scène artificielles
-- Couleurs pastel, dégradés mous
-- Typographies fantaisistes ou décoratives
-- Sourires commerciaux clichés
-- Trop de produit visible : Nike vend une attitude, pas un objet
-
----
-
-## Mantra créatif
-> **"If you have a body, you are an athlete."**
-> Tout part de là. La DA Nike ne vend pas des chaussures, elle vend la conviction que **chacun peut se dépasser** — et le visuel doit le crier sans jamais le dire platement.
+> Une idee ne vaut pas par son enthousiasme. Elle vaut par ce qui resiste au test.

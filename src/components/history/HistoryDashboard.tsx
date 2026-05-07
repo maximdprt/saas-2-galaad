@@ -95,8 +95,9 @@ export function HistoryDashboard() {
             Idees testees
           </h1>
           <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted">
-            Les rapports sont stockes localement dans ce navigateur. Rouvre une
-            analyse, discute avec le mentor ou supprime ce qui n&apos;est plus utile.
+            Les rapports Noyau sont stockes localement dans ce navigateur.
+            Rouvre une analyse, discute avec le mentor ou supprime ce qui
+            n&apos;est plus utile.
           </p>
         </div>
         <Button onClick={() => router.push("/")} size="md">

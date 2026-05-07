@@ -52,19 +52,15 @@ export function DestroySection({ analysis, onUpdate }: DestroySectionProps) {
 
   return (
     <div>
-      {/* Header block — dark */}
-      <div className="border border-soft-ink bg-ink px-6 py-8 sm:px-10 sm:py-10">
-        <p className="label-uppercase text-coral">Mode Roast</p>
-        <h2 className="mt-4 text-[clamp(2rem,4vw,3.5rem)] font-semibold leading-[1.0] tracking-tight text-paper">
-          On détruit ton idée.{" "}
-          <span className="font-serif-italic font-normal text-coral">
-            Pour de vrai.
-          </span>
+      <div className="border border-sand bg-shell px-6 py-8 sm:px-10 sm:py-10">
+        <p className="label-uppercase text-coral">Contre-analyse</p>
+        <h2 className="mt-4 text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase leading-[1.0] tracking-normal text-ink">
+          Cherche ce qui casse.
         </h2>
-        <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-light">
-          Un associé VC qui a vu 3 000 pitches prend ton idée et cherche
-          activement tout ce qui peut la tuer. Failles fatales, hypothèses
-          fausses, concurrents dangereux, scénarios d&apos;échec. Sans filtre.
+        <p className="mt-4 max-w-xl text-base leading-relaxed text-muted">
+          Noyau relit le rapport comme un associe exigeant : failles
+          structurelles, hypotheses fragiles, objections investisseur,
+          concurrents sous-estimes et scenarios d'echec.
         </p>
         <div className="mt-8">
           <Button
@@ -75,33 +71,32 @@ export function DestroySection({ analysis, onUpdate }: DestroySectionProps) {
             loading={loading}
           >
             {loading
-              ? "Roast en cours…"
+              ? "Contre-analyse en cours"
               : analysis.destruction
-                ? "Relancer le roast"
-                : "Roaster mon idée"}
+                ? "Relancer la contre-analyse"
+                : "Lancer la contre-analyse"}
           </Button>
         </div>
       </div>
 
-      {/* Loading */}
       {loading ? (
-        <div className="border-x border-b border-soft-ink bg-ink/95 px-6 py-8 sm:px-10">
+        <div className="border-x border-b border-sand bg-paper px-6 py-8 sm:px-10">
           <div className="flex items-center gap-3">
             <span className="relative flex h-2.5 w-2.5">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-coral opacity-60" />
               <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-coral" />
             </span>
-            <p className="label-uppercase text-muted-light">En train de tout casser…</p>
+            <p className="label-uppercase text-muted">Tri des failles</p>
           </div>
           <ul className="mt-6 space-y-3">
             {[
-              "Cherche les hypothèses que tu refuses de voir",
-              "Construit les objections d'investisseur qui font mal",
-              "Imagine comment ça finit vraiment",
-              "Rédige le verdict sans gants",
+              "Isole les hypotheses non prouvees",
+              "Formule les objections d'investisseur",
+              "Cherche les concurrents sous-estimes",
+              "Ecrit les scenarios d'echec probables",
             ].map((s, i) => (
-              <li key={i} className="flex items-center gap-4 text-sm text-muted-light">
-                <span className="h-px w-4 shrink-0 bg-soft-ink" />
+              <li key={i} className="flex items-center gap-4 text-sm text-muted">
+                <span className="h-px w-4 shrink-0 bg-sand" />
                 {s}
               </li>
             ))}
@@ -109,11 +104,10 @@ export function DestroySection({ analysis, onUpdate }: DestroySectionProps) {
         </div>
       ) : null}
 
-      {/* Error */}
       {error ? (
-        <div className="border-x border-b border-soft-ink p-6 sm:p-8">
+        <div className="border-x border-b border-sand p-6 sm:p-8">
           <ErrorState
-            title="Le roast a foiré"
+            title="La contre-analyse a echoue"
             message={error.message}
             recoveryHint={error.recoveryHint}
             onRetry={run}
@@ -121,17 +115,15 @@ export function DestroySection({ analysis, onUpdate }: DestroySectionProps) {
         </div>
       ) : null}
 
-      {/* Idle state */}
       {!loading && !analysis.destruction && !error ? (
         <div className="border-x border-b border-sand px-6 py-6 sm:px-10">
           <p className="text-sm text-muted">
-            Lance le roast quand tu veux la vérité brutale — avant un pitch,
-            avant de quitter ton job, avant d&apos;investir du temps.
+            Lance cette lecture quand tu veux verifier les angles morts avant un
+            pitch, un investissement ou une decision de pivot.
           </p>
         </div>
       ) : null}
 
-      {/* Results */}
       {!loading && analysis.destruction ? (
         <DestructionView destruction={analysis.destruction} />
       ) : null}
@@ -142,37 +134,33 @@ export function DestroySection({ analysis, onUpdate }: DestroySectionProps) {
 function DestructionView({ destruction }: { destruction: DestructionReport }) {
   return (
     <div>
-      {/* Big verdict — dark banner */}
-      <div className="border-x border-b border-soft-ink bg-ink px-6 py-10 sm:px-10 sm:py-14">
-        <p className="label-uppercase text-coral">Le verdict</p>
-        <blockquote className="mt-5 text-[clamp(1.25rem,3vw,2rem)] font-medium leading-[1.3] text-paper">
-          <span className="font-serif-italic mr-2 text-coral opacity-60">&ldquo;</span>
+      <div className="border-x border-b border-sand bg-ink px-6 py-10 sm:px-10">
+        <p className="label-uppercase text-coral">Verdict de risque</p>
+        <blockquote className="mt-5 text-[clamp(1.25rem,3vw,2rem)] font-medium leading-[1.3] text-shell">
           {destruction.honestVerdict}
-          <span className="font-serif-italic ml-2 text-coral opacity-60">&rdquo;</span>
         </blockquote>
       </div>
 
-      {/* Fatal flaws */}
-      <RoastBlock
-        label="Failles fatales"
+      <RiskBlock
+        label="Failles structurelles"
         accent="coral"
         items={destruction.fatalFlaws}
-        intro="Ce qui tue le projet structurellement :"
+        intro="Ce qui peut casser le projet en profondeur :"
       />
 
-      {/* Investor objections */}
-      <RoastBlock
-        label="Questions investisseur sans réponse"
+      <RiskBlock
+        label="Questions investisseur"
         accent="danger"
         items={destruction.investorObjections}
-        intro="Les questions posées en 30 secondes auxquelles tu n'as pas de bonne réponse :"
+        intro="Les questions auxquelles le projet doit repondre vite :"
       />
 
-      {/* Fragile assumptions — 2 col on desktop */}
-      <div className="border-x border-b border-sand">
+      <div className="border-x border-b border-sand bg-shell">
         <div className="border-b border-sand px-6 py-4 sm:px-8">
-          <p className="label-uppercase text-muted">Hypothèses fragiles</p>
-          <p className="mt-1 text-sm text-muted">Ce sur quoi tout repose et qui est probablement faux :</p>
+          <p className="label-uppercase text-muted">Hypotheses fragiles</p>
+          <p className="mt-1 text-sm text-muted">
+            Ce sur quoi tout repose et qui doit etre prouve :
+          </p>
         </div>
         <ul className="grid sm:grid-cols-2">
           {toArr(destruction.fragileAssumptions).map((item, i) => (
@@ -180,50 +168,40 @@ function DestructionView({ destruction }: { destruction: DestructionReport }) {
               key={i}
               className="border-b border-r border-sand p-6 text-sm leading-relaxed last:border-b-0 sm:even:border-r-0 sm:[&:nth-last-child(-n+2)]:border-b-0"
             >
-              <span className="font-mono text-xs font-semibold text-gold">{String(i + 1).padStart(2, "0")}</span>
+              <span className="font-mono text-xs font-semibold text-coral">
+                {String(i + 1).padStart(2, "0")}
+              </span>
               <p className="mt-2 text-ink">{item}</p>
             </li>
           ))}
         </ul>
       </div>
 
-      {/* Dangerous competitors */}
-      <RoastBlock
-        label="Concurrents qui te mangent tout cru"
-        accent="gold"
+      <RiskBlock
+        label="Alternatives dangereuses"
+        accent="blue"
         items={destruction.dangerousCompetitors}
-        intro="Les alternatives que tu sous-estimes dangereusement :"
+        intro="Les concurrents ou habitudes existantes a ne pas sous-estimer :"
       />
 
-      {/* Failure scenarios */}
-      <div className="border-x border-b border-soft-ink bg-ink">
-        <div className="border-b border-soft-ink px-6 py-4 sm:px-8">
-          <p className="label-uppercase text-coral">Scénarios d&apos;échec</p>
-          <p className="mt-1 text-sm text-muted-light">Dans 18 mois, voilà comment ça se termine :</p>
-        </div>
-        <ul className="divide-y divide-soft-ink">
-          {toArr(destruction.failureScenarios).map((item, i) => (
-            <li key={i} className="flex gap-5 px-6 py-5 sm:px-8">
-              <span className="mt-0.5 font-mono text-xs font-semibold text-coral shrink-0">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <p className="text-sm leading-relaxed text-muted-light">{item}</p>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <RiskBlock
+        label="Scenarios d'echec"
+        accent="ink"
+        items={destruction.failureScenarios}
+        intro="Les trajectoires probables si rien n'est valide :"
+      />
     </div>
   );
 }
 
-function RoastBlock({
+function RiskBlock({
   label,
   accent,
   items,
   intro,
 }: {
   label: string;
-  accent: "coral" | "danger" | "gold";
+  accent: "coral" | "danger" | "blue" | "ink";
   items: string[];
   intro: string;
 }) {
@@ -232,16 +210,20 @@ function RoastBlock({
       ? "text-coral"
       : accent === "danger"
         ? "text-danger"
-        : "text-gold";
+        : accent === "blue"
+          ? "text-vivid-blue"
+          : "text-ink";
   const lineClass =
     accent === "coral"
       ? "bg-coral"
       : accent === "danger"
         ? "bg-danger"
-        : "bg-gold";
+        : accent === "blue"
+          ? "bg-vivid-blue"
+          : "bg-ink";
 
   return (
-    <div className="border-x border-b border-sand">
+    <div className="border-x border-b border-sand bg-shell">
       <div className="border-b border-sand px-6 py-4 sm:px-8">
         <p className={`label-uppercase ${accentClass}`}>{label}</p>
         <p className="mt-1 text-sm text-muted">{intro}</p>

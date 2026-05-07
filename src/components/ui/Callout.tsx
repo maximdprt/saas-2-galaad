@@ -27,7 +27,7 @@ export function Callout({
   return (
     <div
       className={cn(
-        "rounded-2xl border p-5 text-sm leading-relaxed",
+        "rounded-lg border p-5 text-sm leading-relaxed",
         toneClasses[tone],
         className,
       )}

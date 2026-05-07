@@ -108,7 +108,7 @@ export function ReportPage({ id }: { id: string }) {
         </div>
         <div className="mt-4 flex flex-wrap items-end justify-between gap-5">
           <div>
-            <p className="label-uppercase text-muted">Rapport Bizroast</p>
+            <p className="label-uppercase text-muted">Rapport Noyau</p>
             <h1 className="mt-2 text-4xl font-bold uppercase leading-none sm:text-5xl">
               Verdict business
             </h1>

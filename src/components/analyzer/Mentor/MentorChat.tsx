@@ -254,7 +254,7 @@ export function MentorChat({ id }: { id: string }) {
                   type="button"
                   onClick={() => void send(s)}
                   disabled={loading}
-                  className="rounded-2xl border border-sand bg-paper px-3 py-2 text-left text-sm leading-relaxed text-ink transition-colors hover:bg-mist disabled:opacity-50"
+                  className="rounded-lg border border-sand bg-paper px-3 py-2 text-left text-sm leading-relaxed text-ink transition-colors hover:bg-mist disabled:opacity-50"
                 >
                   {s}
                 </button>
@@ -274,8 +274,8 @@ function Message({ message }: { message: MentorMessage }) {
       <div
         className={
           isUser
-            ? "max-w-[80%] rounded-[20px] rounded-tr-md border border-soft-ink bg-ink px-4 py-3 text-paper"
-            : "max-w-[88%] rounded-[20px] rounded-tl-md border border-sand bg-shell px-4 py-3 text-ink"
+            ? "max-w-[80%] rounded-lg rounded-tr-sm border border-soft-ink bg-ink px-4 py-3 text-paper"
+            : "max-w-[88%] rounded-lg rounded-tl-sm border border-sand bg-shell px-4 py-3 text-ink"
         }
       >
         {!isUser ? (
@@ -292,7 +292,7 @@ function Message({ message }: { message: MentorMessage }) {
 function TypingIndicator() {
   return (
     <div className="flex justify-start">
-      <div className="rounded-[20px] rounded-tl-md border border-sand bg-shell px-4 py-3">
+      <div className="rounded-lg rounded-tl-sm border border-sand bg-shell px-4 py-3">
         <p className="label-uppercase mb-1.5 text-muted">Mentor</p>
         <div className="flex items-center gap-1">
           <span className="h-2 w-2 animate-bounce rounded-full bg-muted [animation-delay:-0.2s]" />

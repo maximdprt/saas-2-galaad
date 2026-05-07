@@ -38,7 +38,7 @@ export function SectionAnchors({ items, className }: SectionAnchorsProps) {
     <nav
       aria-label="Sections du rapport"
       className={cn(
-        "rounded-2xl border border-sand bg-paper p-4 text-sm shadow-[var(--shadow-level-1)]",
+        "rounded-lg border border-sand bg-shell p-4 text-sm shadow-[var(--shadow-level-1)]",
         className,
       )}
     >

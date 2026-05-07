@@ -270,10 +270,10 @@ export function analysisToMarkdown(a: BusinessAnalysis): string {
 
   if (a.destruction) {
     lines.push("");
-    lines.push("## Mode contradicteur — Détruis mon idée");
+    lines.push("## Contre-analyse");
     lines.push(`> ${a.destruction.honestVerdict}`);
     lines.push("");
-    lines.push("### Failles fondamentales");
+    lines.push("### Failles structurelles");
     lines.push(bullets(a.destruction.fatalFlaws));
     lines.push("### Objections investisseurs");
     lines.push(bullets(a.destruction.investorObjections));

@@ -41,7 +41,7 @@ export function IdeaInput({
     >
       <div className="border-b border-sand px-5 py-4 sm:px-6">
         <label className="label-uppercase text-muted" htmlFor="idea">
-          Decris ton idee - sois concret
+          Decris l'idee - donne de la matiere
         </label>
       </div>
 
@@ -74,7 +74,7 @@ export function IdeaInput({
           loading={loading}
           disabled={tooShort || tooLong || disabled}
         >
-          {loading ? "Analyse en cours" : "Analyser l'idee"}
+          {loading ? "Analyse en cours" : "Trouver le noyau"}
         </Button>
       </div>
 

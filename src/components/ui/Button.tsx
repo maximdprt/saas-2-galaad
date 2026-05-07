@@ -32,8 +32,8 @@ function variantClasses(variant: Variant): string {
   switch (variant) {
     case "primary":
       return cn(
-        "border border-ink bg-ink text-paper shadow-[var(--shadow-level-1)]",
-        "before:bg-gold hover:text-ink",
+        "border border-coral bg-coral text-shell shadow-[var(--shadow-level-1)]",
+        "before:bg-ink hover:text-shell",
       );
     case "blue":
       return cn(

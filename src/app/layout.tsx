@@ -25,9 +25,9 @@ const mono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Bizroast - Analyse claire de ton idee business",
+  title: "Noyau - Garde ce qui tient",
   description:
-    "Un analyste IA exigeant qui teste la solidite de ton idee business : risques, marche, concurrence, monetisation, plan de validation, Go/No-Go.",
+    "Un SaaS d'analyse business qui trie une idee, expose les risques et transforme un projet flou en plan terrain.",
 };
 
 export default function RootLayout({

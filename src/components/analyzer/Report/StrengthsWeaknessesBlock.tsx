@@ -90,7 +90,7 @@ export function StrengthsWeaknessesBlock({
           {toArr(analysis.acquisitionChannels).map((c, i) => (
             <span
               key={i}
-              className="rounded-full border border-sand bg-shell px-3 py-1.5 text-sm text-ink"
+              className="rounded-md border border-sand bg-shell px-3 py-1.5 text-sm text-ink"
             >
               {c}
             </span>

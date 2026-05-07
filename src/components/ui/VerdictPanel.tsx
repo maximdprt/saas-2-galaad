@@ -63,7 +63,7 @@ export function VerdictPanel({
   return (
     <div
       className={cn(
-        "rounded-[28px] border p-8 sm:p-10",
+        "rounded-lg border p-8 sm:p-10",
         isInk
           ? "border-soft-ink bg-ink text-paper shadow-[var(--shadow-level-3)]"
           : "border-sand bg-paper text-ink shadow-[var(--shadow-level-1)]",

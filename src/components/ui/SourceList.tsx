@@ -17,7 +17,7 @@ interface SourceListProps {
 
 export function SourceList({ sources, liveSearchUsed }: SourceListProps) {
   return (
-    <div className="rounded-2xl border border-sand bg-paper p-6 shadow-[var(--shadow-level-1)]">
+    <div className="rounded-lg border border-sand bg-shell p-6 shadow-[var(--shadow-level-1)]">
       <div className="flex items-center justify-between gap-3">
         <p className="label-uppercase text-muted">Sources & confiance</p>
         <Tag tone={liveSearchUsed ? "info" : "neutral"}>

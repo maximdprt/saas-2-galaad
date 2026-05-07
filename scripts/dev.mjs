@@ -25,8 +25,21 @@ try {
 // #endregion agent log
 
 const nextBin = path.join(projectRoot, "node_modules", ".bin", "next");
+const nextCmd = path.join(projectRoot, "node_modules", ".bin", "next.cmd");
 
-const child = spawn(nextBin, ["dev", projectRoot, "--turbo"], {
+const isWindows = process.platform === "win32";
+const command = isWindows ? "powershell.exe" : nextBin;
+const args = isWindows
+  ? [
+      "-NoProfile",
+      "-ExecutionPolicy",
+      "Bypass",
+      "-Command",
+      `& "${nextCmd}" dev "${projectRoot}" --turbo`,
+    ]
+  : ["dev", projectRoot, "--turbo"];
+
+const child = spawn(command, args, {
   stdio: "inherit",
   cwd: projectRoot,
   env: process.env,

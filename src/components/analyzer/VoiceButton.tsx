@@ -89,7 +89,7 @@ export function VoiceButton({
         onClick={listening ? stop : start}
         aria-pressed={listening}
         className={cn(
-          "group inline-flex items-center gap-2 rounded-full border border-sand bg-paper px-3 py-1.5 text-sm font-medium text-ink shadow-[var(--shadow-level-1)] transition-colors hover:bg-mist",
+          "group inline-flex items-center gap-2 rounded-md border border-sand bg-shell px-3 py-1.5 text-sm font-medium text-ink shadow-[var(--shadow-level-1)] transition-colors hover:bg-mist",
           listening && "border-coral/40 bg-coral/[0.08] text-coral",
         )}
       >
